@@ -55,10 +55,13 @@ function devideBtn() {
 
 function devidePrompt(){
     let value = parseInt(prompt("10〜100の間で分割数を入力してください。", "10"))
-        if(value < 10 || value > 100){
-            console.log(value)
+        if(!Number.isFinite(value) || value < 10 || value > 100){
+            console.log(value);
+            console.log(typeof value);
             devidePrompt();
-        }
-    console.log(value);
+        };
     count = value;
+    container.innerHTML = "";
+    createGrid(count);
+    hoverColor();
 }
