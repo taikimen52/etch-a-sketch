@@ -1,10 +1,10 @@
 const container = document.querySelector(".container");
 
 //グリッドの初期分割数
-let count = 10;
+let count = 16;
 
 createGrid(count)
-
+hoverColor()
 
 //グリッドを作成
 function createGrid(count){
@@ -28,7 +28,18 @@ function createGrid(count){
 //グリッドに属性とスタイルを付与
 function gridStyle(div){
     div.style.border = "1px solid gray";
-    div.style.width = "200px";
-    div.style.height = "200px";
-    div.style.minWidth = "0"; 
+    const divSize = Math.min(window.innerWidth, window.innerHeight) / count;
+    div.style.width = `${divSize}px`; 
+    div.style.height = `${divSize}px`;
+
+}
+
+//hoverしたdivに色付け用classを追加
+function hoverColor(){
+    document.querySelectorAll(".divy").forEach(el =>{
+        el.addEventListener("mouseover", () =>{
+            el.classList.add("is-hover")
+        })
+    })
+
 }
