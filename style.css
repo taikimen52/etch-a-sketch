@@ -2,11 +2,19 @@
     /* outline: auto; */
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     max-width: 100vw;
     max-height: 100vw;
+}
+
+.devidebtn {
+    width: 90px;
+    margin: 0 auto;
+    text-align: center;
+
 }
 
 .container {

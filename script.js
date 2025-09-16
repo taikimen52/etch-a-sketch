@@ -1,10 +1,11 @@
 const container = document.querySelector(".container");
 
 //グリッドの初期分割数
-let count = 16;
+let count = 100;
 
-createGrid(count)
-hoverColor()
+createGrid(count);
+hoverColor();
+devideBtn();
 
 //グリッドを作成
 function createGrid(count){
@@ -28,7 +29,7 @@ function createGrid(count){
 //グリッドに属性とスタイルを付与
 function gridStyle(div){
     div.style.border = "1px solid gray";
-    const divSize = Math.min(window.innerWidth, window.innerHeight) / count;
+    const divSize = window.innerWidth / count;
     div.style.width = `${divSize}px`; 
     div.style.height = `${divSize}px`;
 
@@ -42,4 +43,22 @@ function hoverColor(){
         })
     })
 
+}
+
+//分割数を変更するボタン機能
+function devideBtn() {
+    const btn = document.querySelector(".devidebtn")
+    btn.addEventListener("click", () =>{
+        devidePrompt()
+    })
+}
+
+function devidePrompt(){
+    let value = parseInt(prompt("10〜100の間で分割数を入力してください。", "10"))
+        if(value < 10 || value > 100){
+            console.log(value)
+            devidePrompt();
+        }
+    console.log(value);
+    count = value;
 }
